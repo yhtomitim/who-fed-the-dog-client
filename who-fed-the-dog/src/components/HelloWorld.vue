@@ -24,7 +24,7 @@
 export default {
   methods: {
     clickThis() {
-      const apiUrl = 'localhost:8080/'
+      const apiUrl = 'http://localhost:8080/api/v1/routes'
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => console.log(Response));
