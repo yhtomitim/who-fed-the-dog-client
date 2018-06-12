@@ -25,7 +25,7 @@ export default {
         .then(Response => Response.json())
         .then(Response => {
           this.toPage = [];
-          this.toPage.push(Response);
+          this.toPage.push(Response.users);
         })
     },
     getPets() {
@@ -34,7 +34,7 @@ export default {
         .then(Response => Response.json())
         .then(Response => {
           this.toPage = [];
-          this.toPage.push(Response);
+          this.toPage.push(Response.pets);
         })
     },
     getFedLog() {
@@ -43,7 +43,7 @@ export default {
         .then(Response => Response.json())
         .then(Response => {
           this.toPage = [];
-          this.toPage.push(Response);
+          this.toPage.push(Response.fed);
         })
     }
   },
