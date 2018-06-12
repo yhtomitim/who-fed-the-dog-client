@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     clickThis() {
-      const apiUrl = 'http://localhost:8080/api/v1/routes'
+      const apiUrl = 'http://localhost:8080/api/v1/routes/users'
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => this.user = Response);
