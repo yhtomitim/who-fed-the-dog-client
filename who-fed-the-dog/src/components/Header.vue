@@ -1,6 +1,6 @@
 <template>
   <v-footer>
-    <p>This is a header</p>
+    <p>Who Fed The Dog?!</p>
   </v-footer>
 </template>
 
