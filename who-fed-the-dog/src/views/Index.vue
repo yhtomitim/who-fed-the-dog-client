@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <p>this is the index.vue file in the router-view tag in app.vue</p>
+    <p>this is the index.vue file in the router-view tag in app.vue I need to destructure this after I get elements wired up correctly.</p>
     <v-btn @click="getUsers">List {{ labels[0] }}</v-btn>
     <v-btn @click="getPets">List {{ labels[1] }}</v-btn>
     <v-btn @click="getFedLog">List {{ labels[2] }} Log </v-btn>
@@ -17,6 +17,9 @@
       <button
       @click.prevent="deleteUser"
       type="submit">Remove User</button>
+       <button
+        @click.prevent="findUser"
+        type="submit">Find User</button>
     </form>
      <form action="">
       <label for="newPet">Pet Name: </label>
@@ -29,6 +32,9 @@
       <button
         @click.prevent="deletePet"
         type="submit">Remove Pet</button>
+      <button
+        @click.prevent="findPet"
+        type="submit">Find Pet</button>
     </form>
     <list-data :data="toPage"/>
   </v-app>
@@ -56,6 +62,15 @@ export default {
           this.toPage.push(Response.users);
         })
     },
+    findUser() {
+      const apiUrl = `http://localhost:8080/api/v1/routes/${this.labels[0]}/${this.user}`;
+      fetch(apiUrl)
+        .then(Response => Response.json())
+        .then(Response => {
+          this.toPage = [];
+          this.toPage.push(Response);
+        })
+    },
     getPets() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/pets';
       fetch(apiUrl)
@@ -63,6 +78,15 @@ export default {
         .then(Response => {
           this.toPage = [];
           this.toPage.push(Response.pets);
+        })
+    },
+    findPet() {
+      const apiUrl = `http://localhost:8080/api/v1/routes/pets/${this.pet}`;
+      fetch(apiUrl)
+        .then(Response => Response.json())
+        .then(Response => {
+          this.toPage = [];
+          this.toPage.push(Response);
         })
     },
     getFedLog() {
@@ -160,6 +184,7 @@ export default {
           console.log(Response)
           });
     },
+
   },
   components: {
     ListData
