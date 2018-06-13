@@ -6,6 +6,12 @@
     <v-btn @click="getFedLog">List {{ labels[2] }} Log </v-btn>
     <v-btn @click="postFed">Bailey</v-btn>
     <v-btn>Tim</v-btn>
+    <form action="">
+      <label for="newUser">Add new user: </label>
+      <input type="text">
+      <button
+        @click.prevent="postNewUser"
+        type="submit">Add User</button>
     </form>
     <list-data :data="toPage"/>
   </v-app>
@@ -66,6 +72,10 @@ export default {
         .then(Response => {
           console.log(Response)
           });
+    },
+    postNewUser() {
+      console.log('clicked');
+      
     }
   },
   components: {
