@@ -1,11 +1,10 @@
 <template>
   <v-app>
     <p>this is the index.vue file in the router-view tag in app.vue I need to destructure this after I get elements wired up correctly.</p>
-    <v-btn @click="getUsers">List {{ labels[0] }}</v-btn>
-    <v-btn @click="getPets">List {{ labels[1] }}</v-btn>
+    <v-btn @click="getUsers">List all {{ labels[0] }}</v-btn>
+    <v-btn @click="getPets">List all {{ labels[1] }}</v-btn>
     <v-btn @click="getFedLog">List {{ labels[2] }} Log </v-btn>
-    <v-btn @click="postFed">Bailey</v-btn>
-    <v-btn>Tim</v-btn>
+    <v-btn @click="postFed">Mark Pet As Fed</v-btn>
     <form action="">
       <label for="newUser">Username: </label>
       <v-text-field
@@ -98,6 +97,7 @@ export default {
           this.toPage.push(Response.fed);
         })
     },
+    //this will need to get the name typed in and the pet name to post to the db table fed
     postFed() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/feed';
       const data = {
