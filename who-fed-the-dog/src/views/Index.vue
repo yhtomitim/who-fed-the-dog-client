@@ -4,6 +4,9 @@
     <v-btn @click="getUsers">List {{ labels[0] }}</v-btn>
     <v-btn @click="getPets">List {{ labels[1] }}</v-btn>
     <v-btn @click="getFedLog">List {{ labels[2] }} Log </v-btn>
+    <v-btn @click="markFed">Bailey</v-btn>
+    <v-btn>Tim</v-btn>
+    </form>
     <list-data :data="toPage"/>
   </v-app>
 </template>
@@ -45,6 +48,19 @@ export default {
           this.toPage = [];
           this.toPage.push(Response.fed);
         })
+    },
+    markFed() {
+      const apiUrl = 'http://localhost:8080/api/v1/routes/feed';
+      fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({user_id: 1, pet_id: 1}),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        mode: 'no-cors'
+      })
+        .then(Response => Response.json())
+        .then(Response => console.log(Response));
     }
   },
   components: {
