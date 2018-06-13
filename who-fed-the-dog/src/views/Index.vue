@@ -7,22 +7,28 @@
     <v-btn @click="postFed">Bailey</v-btn>
     <v-btn>Tim</v-btn>
     <form action="">
-      <label for="newUser">Add new user: </label>
+      <label for="newUser">Username: </label>
       <input
         type="text"
-        v-model="userToAdd">
+        v-model="user">
       <button
         @click.prevent="postNewUser"
         type="submit">Add User</button>
+      <button
+      @click.prevent="deleteUser"
+      type="submit">Remove User</button>
     </form>
      <form action="">
-      <label for="newPet">Add new pet: </label>
+      <label for="newPet">Pet Name: </label>
       <input
         type="text"
-        v-model="petToAdd">
+        v-model="pet">
       <button
         @click.prevent="postNewPet"
         type="submit">Add Pet</button>
+      <button
+        @click.prevent="deletePet"
+        type="submit">Remove Pet</button>
     </form>
     <list-data :data="toPage"/>
   </v-app>
@@ -36,8 +42,8 @@ export default {
     return {
       toPage: [],
       labels: ['users', 'pets', 'fed'],
-      userToAdd: '',
-      petToAdd: ''
+      user: '',
+      pet: ''
     }
   },
   methods: {
@@ -89,7 +95,7 @@ export default {
     postNewUser() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/newuser';
       const data = {
-        username: this.userToAdd
+        username: this.user
       };
       fetch(apiUrl, {
         body: JSON.stringify(data),
@@ -106,7 +112,7 @@ export default {
     postNewPet() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/newpet';
       const data = {
-        petName: this.petToAdd
+        petName: this.pet
       };
       fetch(apiUrl, {
         body: JSON.stringify(data),
@@ -119,7 +125,41 @@ export default {
         .then(Response => {
           console.log(Response)
           });
-    }
+    },
+    deletePet() {
+      const apiUrl = `http://localhost:8080/api/v1/routes/removepet/${this.pet}`;
+      const data = {
+        petName: this.pet
+      };
+      fetch(apiUrl, {
+        body: JSON.stringify(data),
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+          mode: 'no-cors'}),
+        method: 'DELETE',
+      })
+        .then(Response => Response.json())
+        .then(Response => {
+          console.log(Response)
+          });
+    },
+    deleteUser() {
+      const apiUrl = `http://localhost:8080/api/v1/routes/removeuser/${this.user}`;
+      const data = {
+        username: this.user
+      };
+      fetch(apiUrl, {
+        body: JSON.stringify(data),
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+          mode: 'no-cors'}),
+        method: 'DELETE',
+      })
+        .then(Response => Response.json())
+        .then(Response => {
+          console.log(Response)
+          });
+    },
   },
   components: {
     ListData
