@@ -8,33 +8,33 @@
     <v-btn>Tim</v-btn>
     <form action="">
       <label for="newUser">Username: </label>
-      <input
+      <v-text-field
         type="text"
-        v-model="user">
-      <button
+        v-model="user"></v-text-field>
+      <v-btn
         @click.prevent="postNewUser"
-        type="submit">Add User</button>
-      <button
+        type="submit">Add User</v-btn>
+      <v-btn
       @click.prevent="deleteUser"
-      type="submit">Remove User</button>
-       <button
+      type="submit">Remove User</v-btn>
+       <v-btn
         @click.prevent="findUser"
-        type="submit">Find User</button>
+        type="submit">Find User</v-btn>
     </form>
      <form action="">
       <label for="newPet">Pet Name: </label>
-      <input
+      <v-text-field
         type="text"
-        v-model="pet">
-      <button
+        v-model="pet"></v-text-field>
+      <v-btn
         @click.prevent="postNewPet"
-        type="submit">Add Pet</button>
-      <button
+        type="submit">Add Pet</v-btn>
+      <v-btn
         @click.prevent="deletePet"
-        type="submit">Remove Pet</button>
-      <button
+        type="submit">Remove Pet</v-btn>
+      <v-btn
         @click.prevent="findPet"
-        type="submit">Find Pet</button>
+        type="submit">Find Pet</v-btn>
     </form>
     <list-data :data="toPage"/>
   </v-app>
