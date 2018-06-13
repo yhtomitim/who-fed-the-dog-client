@@ -8,10 +8,21 @@
     <v-btn>Tim</v-btn>
     <form action="">
       <label for="newUser">Add new user: </label>
-      <input type="text">
+      <input
+        type="text"
+        v-model="userToAdd">
       <button
         @click.prevent="postNewUser"
         type="submit">Add User</button>
+    </form>
+     <form action="">
+      <label for="newPet">Add new pet: </label>
+      <input
+        type="text"
+        v-model="petToAdd">
+      <button
+        @click.prevent="postNewPet"
+        type="submit">Add Pet</button>
     </form>
     <list-data :data="toPage"/>
   </v-app>
@@ -24,7 +35,9 @@ export default {
   data() {
     return {
       toPage: [],
-      labels: ['users', 'pets', 'fed']
+      labels: ['users', 'pets', 'fed'],
+      userToAdd: '',
+      petToAdd: ''
     }
   },
   methods: {
@@ -74,8 +87,38 @@ export default {
           });
     },
     postNewUser() {
-      console.log('clicked');
-      
+      const apiUrl = 'http://localhost:8080/api/v1/routes/newuser';
+      const data = {
+        username: this.userToAdd
+      };
+      fetch(apiUrl, {
+        body: JSON.stringify(data),
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+          mode: 'no-cors'}),
+        method: 'POST',
+      })
+        .then(Response => Response.json())
+        .then(Response => {
+          console.log(Response)
+          });
+    },
+    postNewPet() {
+      const apiUrl = 'http://localhost:8080/api/v1/routes/newpet';
+      const data = {
+        petName: this.petToAdd
+      };
+      fetch(apiUrl, {
+        body: JSON.stringify(data),
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+          mode: 'no-cors'}),
+        method: 'POST',
+      })
+        .then(Response => Response.json())
+        .then(Response => {
+          console.log(Response)
+          });
     }
   },
   components: {
