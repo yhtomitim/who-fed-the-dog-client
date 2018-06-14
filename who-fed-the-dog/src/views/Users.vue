@@ -18,6 +18,7 @@
         type="submit">Find User</v-btn>
       <v-btn>Edit {{ user }}</v-btn>
     </form>
+    <p v-if="true">{{ message }}</p>
     <details>
       <list-data :data="toPage"/>
     </details>
@@ -31,7 +32,8 @@ export default {
   data () {
     return {
       toPage: [],
-      user: ''
+      user: '',
+      message: ''
     }
   },
   methods: {
@@ -68,8 +70,11 @@ export default {
       })
         .then(Response => Response.json())
         .then(Response => {
-          console.log(Response)
-          });
+          this.message = Response.message;
+          setTimeout(() => {
+            this.message = '';
+            }, 4000);
+        });
     },
     deleteUser() {
       const apiUrl = `http://localhost:8080/api/v1/routes/removeuser/${this.user}`;
@@ -85,8 +90,11 @@ export default {
       })
         .then(Response => Response.json())
         .then(Response => {
-          console.log(Response)
-          });
+          this.message = Response.message;
+          setTimeout(() => {
+            this.message = '';
+            }, 4000);
+        });
     }
   },
   components:  {
