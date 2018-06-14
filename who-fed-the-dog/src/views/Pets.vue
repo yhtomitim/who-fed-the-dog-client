@@ -18,6 +18,7 @@
         type="submit">Find Pet</v-btn>
       <v-btn>Edit {{ pet }}</v-btn>
     </form>
+    <p v-if="true">{{ message }}</p>
     <details>
       <list-data :data="toPage"></list-data>
     </details>
@@ -31,7 +32,8 @@ export default {
   data () {
     return {
       toPage: [],
-      pet: ''
+      pet: '',
+      message: ''
     }
   },
   components: {
@@ -69,8 +71,11 @@ export default {
       })
         .then(Response => Response.json())
         .then(Response => {
-          console.log(Response)
-          });
+          this.message = Response.message;
+          setTimeout(() => {
+            this.message = '';
+            }, 4000);
+        });
     },
     deletePet() {
       const apiUrl = `http://localhost:8080/api/v1/routes/removepet/${this.pet}`;
@@ -86,8 +91,11 @@ export default {
       })
         .then(Response => Response.json())
         .then(Response => {
-          console.log(Response)
-          });
+          this.message = Response.message;
+          setTimeout(() => {
+            this.message = '';
+            }, 4000);
+        });
     }
   }
 }
