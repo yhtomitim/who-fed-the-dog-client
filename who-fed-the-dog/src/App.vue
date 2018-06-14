@@ -21,15 +21,3 @@ export default {
 }
 </script>
 
-<style>
-/* {
-  primary: "#33691E",
-  secondary: "#DCEDC8",
-  accent: "#FFB74D",
-  error: "#E64A19",
-  warning: "#FFD600",
-  info: "#9CCC65",
-  success: "#4caf50"
-} */
-</style>
-
