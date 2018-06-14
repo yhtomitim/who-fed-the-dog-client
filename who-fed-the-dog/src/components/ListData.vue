@@ -1,15 +1,17 @@
 <template>
   <ul>
-    <li
+    <v-card
       v-for="(value, index) in data[0]"
-      :key="index">
+      :key="index"
+      width="20em"
+      dark>
       <p>{{value.id}}</p>
       <p>{{value.username}}</p>
       <p>{{value.petName}}</p>
       <p>Pet ID: {{value.pet_id}}</p>
       <p>User ID: {{value.user_id}}</p>
-      <p>{{value.fedOn}}</p>
-      </li>
+      <p>Date and time Fed: {{value.fedOn}}</p>
+      </v-card>
   </ul>
 </template>
 
