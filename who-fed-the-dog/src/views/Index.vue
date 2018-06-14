@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <main>
     <p>This app is designed to help you keep track of when the dog was fed. It will also help you keep track of the number of times someone has fed the dog cummulatively.</p>
     <p>If you don't have a username, click the Users page, and create a user. Come back to the home page, and then select your name!</p>
     <p>If you haven't entered your pet yet, click the Pets page, and create a pet. Come back to the home page, and select your pet!</p>
@@ -7,7 +7,7 @@
       <label for="user">Username: </label>
       <v-select
         :items="username"
-        label="Select"
+        label="Select One..."
         v-model="selectedUser"
         single-line></v-select>
     </form>
@@ -15,13 +15,13 @@
        <label for="pet">Pet Name: </label>
       <v-select
         :items="petName"
-        label="Select"
+        label="Select One..."
         v-model="selectedPet"
         single-line></v-select>
     </form>
-    <v-btn @click="postFed">Mark {{selectedPet || 'Pet'}} As Fed</v-btn>
-    <!-- <list-data :data="toPage"/> -->
-  </v-app>
+    <v-btn @click="postFed">Mark {{selectedPet || 'Pet'}} As Fed By {{selectedUser || `...`}}</v-btn>
+    <p v-if="true">{{ message }}</p>
+  </main>
 </template>
 
 <script>
@@ -35,7 +35,8 @@ export default {
       username: [],
       petName: [],
       selectedPet: null,
-      selectedUser: null
+      selectedUser: null,
+      message: ''
     }
   },
   mounted: function() {
@@ -66,13 +67,9 @@ export default {
     //this will need to get the name typed in and the pet name to post to the db table fed
     postFed() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/feed';
-      const filteredUsers = this.users.filter(user => user.username === this.selectedUser);
-      const filteredPets = this.pets.filter(pet => pet.petName === this.selectedPet);
-      const userId = filteredUsers[0].id;
-      const petId = filteredPets[0].id;
       const data = {
-        user_id: userId,
-        pet_id: petId,
+        user_id: this.matchUserId,
+        pet_id: this.matchPetId,
       };
       fetch(apiUrl, {
         body: JSON.stringify(data),
@@ -83,12 +80,23 @@ export default {
       })
         .then(Response => Response.json())
         .then(Response => {
-          console.log(Response)
-          });
+          this.message = Response.message;
+          setTimeout(() => {
+            this.message = '';
+            }, 4000);
+        });
     }
   },
   components: {
     ListData
+  },
+    computed: {
+    matchUserId() {
+      return this.users.filter(user => user.username === this.selectedUser)[0].id;
+    },
+    matchPetId() {
+      return this.pets.filter(pet => pet.petName === this.selectedPet)[0].id
+    }
   }
 }
 </script>
