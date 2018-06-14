@@ -43,7 +43,6 @@ export default {
         .then(Response => Response.json())
         .then(Response => {
           this.toPage = [];
-          console.log(Response.users);
           this.toPage.push(Response.users);
         })
     },
@@ -52,8 +51,10 @@ export default {
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
-          this.toPage = [];
-          this.toPage.push(Response);
+          Response.message
+            ? this.message = Response.message
+            : (this.toPage = [],
+               this.toPage.push(Response))
         })
     },
     postNewUser() {

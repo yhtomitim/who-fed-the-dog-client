@@ -54,10 +54,13 @@ export default {
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
-          this.toPage = [];
-          this.toPage.push(Response);
+        Response.message
+            ? this.message = Response.message
+            : (this.toPage = [],
+               this.toPage.push(Response))
         })
-    },postNewPet() {
+    },
+    postNewPet() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/newpet';
       const data = {
         petName: this.pet
