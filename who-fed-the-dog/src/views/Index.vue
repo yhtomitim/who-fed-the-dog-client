@@ -10,15 +10,17 @@
       <v-text-field
         type="text"
         v-model="user"></v-text-field>
+      <v-select :labels="labels">Users</v-select>
       <v-btn
         @click.prevent="postNewUser"
         type="submit">Add User</v-btn>
       <v-btn
-      @click.prevent="deleteUser"
-      type="submit">Remove User</v-btn>
-       <v-btn
+        @click.prevent="deleteUser"
+        type="submit">Remove User</v-btn>
+      <v-btn
         @click.prevent="findUser"
         type="submit">Find User</v-btn>
+      <v-btn>Edit {{ user }}</v-btn>
     </form>
      <form action="">
       <label for="newPet">Pet Name: </label>
@@ -34,6 +36,7 @@
       <v-btn
         @click.prevent="findPet"
         type="submit">Find Pet</v-btn>
+      <v-btn>Edit {{ pet }}</v-btn>
     </form>
     <list-data :data="toPage"/>
   </v-app>
