@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import Bar from '../LineChart.js'
+  import Bar from '../BarChart.js'
 
   export default {
 
