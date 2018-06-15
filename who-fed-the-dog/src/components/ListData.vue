@@ -3,8 +3,7 @@
     <v-card
       v-for="(value, index) in data[0]"
       :key="index"
-      width="20em"
-      dark>
+      width="20em">
       <p>ID: {{value.id}}</p>
       <p v-if="value.username">{{value.username}}</p>
       <p v-if="value.petName">{{value.petName}}</p>
