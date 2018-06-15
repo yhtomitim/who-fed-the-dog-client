@@ -9,15 +9,14 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "test": "npx run cypress"
+    "test": "npx cypress open"
   },
   "dependencies": {
     "chart.js": "^2.7.2",
     "vue": "^2.5.2",
     "vue-chartjs": "^3.3.1",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.0.0",
-    "vuex": "^3.0.1"
+    "vuetify": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
