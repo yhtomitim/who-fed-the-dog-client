@@ -3,7 +3,7 @@
     <h3>Pets</h3>
     <v-btn @click="getPets">List all Pets</v-btn>
     <form action="">
-      <label for="newPet">Pet Name: </label>
+      <label for="newPet">Enter Pet Name Below: </label>
       <v-text-field
         type="text"
         v-model="pet"></v-text-field>
@@ -19,6 +19,7 @@
     </form>
     <p v-if="true">{{ message }}</p>
     <details>
+      <summary>Expand for requested info...</summary>
       <list-data :data="toPage"></list-data>
       <label for="editPet">Change Pet Name: </label>
       <v-text-field

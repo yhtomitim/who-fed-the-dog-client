@@ -3,7 +3,7 @@
     <h3>Users</h3>
     <v-btn @click="getUsers">List all Users</v-btn>
     <form action="">
-      <label for="newUser">Username: </label>
+      <label for="newUser">Enter Username Below: </label>
       <v-text-field
         type="text"
         v-model="user"></v-text-field>
@@ -19,6 +19,7 @@
     </form>
     <p v-if="true">{{ message }}</p>
     <details>
+      <summary>Expand for requested info...</summary>
       <list-data :data="toPage"/>
       <label for="editUser">Change Username: </label>
       <v-text-field
