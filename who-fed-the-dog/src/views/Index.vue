@@ -64,7 +64,6 @@ export default {
           this.pets.forEach(pet => this.petName.push(pet.petName));
         })
     },
-    //this will need to get the name typed in and the pet name to post to the db table fed
     postFed() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/feed';
       const data = {
