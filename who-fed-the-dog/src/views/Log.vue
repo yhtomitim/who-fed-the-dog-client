@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     getFedLog() {
-      const apiUrl = 'http://localhost:8080/api/v1/routes/feedsummary';
+      const apiUrl = 'https://who-fed-the-dog.herokuapp.com/api/v1/routes/feedsummary';
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {

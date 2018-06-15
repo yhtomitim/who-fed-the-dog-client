@@ -2,7 +2,7 @@
 
 describe('Who Fed the Dog?! app', () => {
   it('visits the site', () => {
-    cy.visit('localhost:8081');
+    cy.visit('https://who-fed-the-dog-6360c.firebaseapp.com');
   });
   it('will click on users nav button', () => {
     cy.get('[href="#/users"] > .btn__content').click()

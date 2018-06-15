@@ -63,7 +63,7 @@
         }
       },
       getFedLog() {
-      const apiUrl = 'http://localhost:8080/api/v1/routes/feedsummary';
+      const apiUrl = 'https://who-fed-the-dog.herokuapp.com/api/v1/routes/feedsummary';
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
@@ -72,7 +72,7 @@
         });
       },
       getUsers() {
-      const apiUrl = `http://localhost:8080/api/v1/routes/users`;
+      const apiUrl = `https://who-fed-the-dog.herokuapp.com/api/v1/routes/users`;
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
@@ -81,7 +81,7 @@
         })
       },
       getPets() {
-      const apiUrl = 'http://localhost:8080/api/v1/routes/pets';
+      const apiUrl = 'https://who-fed-the-dog.herokuapp.com/api/v1/routes/pets';
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {

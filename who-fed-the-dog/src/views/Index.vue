@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     getUsers() {
-      const apiUrl = `http://localhost:8080/api/v1/routes/users`;
+      const apiUrl = `https://who-fed-the-dog.herokuapp.com/api/v1/routes/users`;
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
@@ -56,7 +56,7 @@ export default {
         })
     },
     getPets() {
-      const apiUrl = 'http://localhost:8080/api/v1/routes/pets';
+      const apiUrl = 'https://who-fed-the-dog.herokuapp.com/api/v1/routes/pets';
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
@@ -66,7 +66,7 @@ export default {
         })
     },
     postFed() {
-      const apiUrl = 'http://localhost:8080/api/v1/routes/feed';
+      const apiUrl = 'https://who-fed-the-dog.herokuapp.com/api/v1/routes/feed';
       const data = {
         user_id: this.matchUserId,
         pet_id: this.matchPetId,

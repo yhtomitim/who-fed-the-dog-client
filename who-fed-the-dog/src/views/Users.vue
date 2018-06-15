@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     getUsers() {
-      const apiUrl = `http://localhost:8080/api/v1/routes/users`;
+      const apiUrl = `https://who-fed-the-dog.herokuapp.com/api/v1/routes/users`;
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
@@ -53,7 +53,7 @@ export default {
         })
     },
     findUser() {
-      const apiUrl = `http://localhost:8080/api/v1/routes/users/${this.user}`;
+      const apiUrl = `https://who-fed-the-dog.herokuapp.com/api/v1/routes/users/${this.user}`;
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
@@ -64,7 +64,7 @@ export default {
         })
     },
     updateUser() {
-      const apiUrl = `http://localhost:8080/api/v1/routes/users/${this.user}`;
+      const apiUrl = `https://who-fed-the-dog.herokuapp.com/api/v1/routes/users/${this.user}`;
       const data = {
         username: this.changedUsername
       };
@@ -84,7 +84,7 @@ export default {
         });
     },
     postNewUser() {
-    const apiUrl = 'http://localhost:8080/api/v1/routes/newuser';
+    const apiUrl = 'https://who-fed-the-dog.herokuapp.com/api/v1/routes/newuser';
     const data = {
       username: this.user
     };
@@ -104,7 +104,7 @@ export default {
         });
     },
     deleteUser() {
-      const apiUrl = `http://localhost:8080/api/v1/routes/removeuser/${this.user}`;
+      const apiUrl = `https://who-fed-the-dog.herokuapp.com/api/v1/routes/removeuser/${this.user}`;
       const data = {
         username: this.user
       };
