@@ -20,15 +20,7 @@
       </v-chip>
     </nav>
     </v-footer>
-    
   </header>
 </template>
 
-<script>
-// export default {
-//   data () {
-    
-//   }
-// }
-</script>
 
