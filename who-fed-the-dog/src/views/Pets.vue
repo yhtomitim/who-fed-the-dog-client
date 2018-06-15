@@ -16,11 +16,15 @@
       <v-btn
         @click.prevent="findPet"
         type="submit">Find Pet</v-btn>
-      <v-btn>Edit {{ pet }}</v-btn>
     </form>
     <p v-if="true">{{ message }}</p>
     <details>
       <list-data :data="toPage"></list-data>
+      <label for="editPet">Change Pet Name: </label>
+      <v-text-field
+        type="text"
+        v-model="changedPetName"></v-text-field>
+      <v-btn @click.prevent="updatePet">Edit {{ pet }}</v-btn>
     </details>
   </section>
 </template>
@@ -33,7 +37,8 @@ export default {
     return {
       toPage: [],
       pet: '',
-      message: ''
+      message: '',
+      changedPetName: ''
     }
   },
   components: {
@@ -59,6 +64,26 @@ export default {
             : (this.toPage = [],
                this.toPage.push(Response))
         })
+    },
+    updatePet() {
+      const apiUrl = `http://localhost:8080/api/v1/routes/pets/${this.pet}`;
+      const data = {
+        petName: this.changedPetName
+      };
+      fetch(apiUrl, {
+        body: JSON.stringify(data),
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+          mode: 'no-cors'}),
+        method: 'PUT',
+      })
+        .then(Response => Response.json())
+        .then(Response => {
+          this.message = Response.message;
+          setTimeout(() => {
+            this.message = '';
+            }, 4000);
+        });
     },
     postNewPet() {
       const apiUrl = 'http://localhost:8080/api/v1/routes/newpet';

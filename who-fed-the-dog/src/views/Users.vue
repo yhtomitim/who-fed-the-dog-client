@@ -16,11 +16,15 @@
       <v-btn
         @click.prevent="findUser"
         type="submit">Find User</v-btn>
-      <v-btn>Edit {{ user }}</v-btn>
     </form>
     <p v-if="true">{{ message }}</p>
     <details>
       <list-data :data="toPage"/>
+      <label for="editUser">Change Username: </label>
+      <v-text-field
+        type="text"
+        v-model="changedUsername"></v-text-field>
+      <v-btn @click.prevent="updateUser">Edit {{ user }}</v-btn>
     </details>
   </section>
 </template>
@@ -33,7 +37,8 @@ export default {
     return {
       toPage: [],
       user: '',
-      message: ''
+      message: '',
+      changedUsername: ''
     }
   },
   methods: {
@@ -56,6 +61,26 @@ export default {
             : (this.toPage = [],
                this.toPage.push(Response))
         })
+    },
+    updateUser() {
+      const apiUrl = `http://localhost:8080/api/v1/routes/users/${this.user}`;
+      const data = {
+        username: this.changedUsername
+      };
+      fetch(apiUrl, {
+        body: JSON.stringify(data),
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+          mode: 'no-cors'}),
+        method: 'PUT',
+      })
+        .then(Response => Response.json())
+        .then(Response => {
+          this.message = Response.message;
+          setTimeout(() => {
+            this.message = '';
+            }, 4000);
+        });
     },
     postNewUser() {
     const apiUrl = 'http://localhost:8080/api/v1/routes/newuser';
