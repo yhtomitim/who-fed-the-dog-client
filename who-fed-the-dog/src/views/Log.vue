@@ -15,12 +15,12 @@ export default {
   },
   methods: {
     getFedLog() {
-      const apiUrl = 'http://localhost:8080/api/v1/routes/fedon';
+      const apiUrl = 'http://localhost:8080/api/v1/routes/feedsummary';
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
           this.toPage = [];
-          this.toPage.push(Response.fed);
+          this.toPage.push(Response.list);
         })
     }
   },
