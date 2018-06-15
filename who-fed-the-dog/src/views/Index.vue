@@ -1,6 +1,7 @@
 <template>
   <main>
-    <p>This app is designed to help you keep track of when the dog was fed. It will also help you keep track of the number of times someone has fed the dog cummulatively.</p>
+    <h1>Who Fed The Dog?!</h1>
+    <p>This app is designed to help you keep track of when your dog or pet was fed last.</p>
     <p>If you don't have a username, click the Users page, and create a user. Come back to the home page, and then select your name!</p>
     <p>If you haven't entered your pet yet, click the Pets page, and create a pet. Come back to the home page, and select your pet!</p>
     <form action="">
