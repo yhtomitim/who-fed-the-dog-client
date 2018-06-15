@@ -2,7 +2,15 @@
   <v-app>
     <Header/>
     <v-content>
-      <router-view/>
+      <v-container
+        fluid
+        fill-height>
+        <v-layout
+          align-center
+          justify-center>
+          <router-view/>
+        </v-layout>
+      </v-container>
     </v-content>
     <Footer/>
   </v-app>
