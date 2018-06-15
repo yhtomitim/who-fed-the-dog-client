@@ -1,7 +1,6 @@
 <template>
   <section>
     <h3>Feeding Log</h3>
-    <!-- <v-btn @click="getFedLog">List Feeding Log </v-btn> -->
     <list-data :data="toPage"></list-data>
   </section>
 </template>
