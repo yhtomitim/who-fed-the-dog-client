@@ -4,7 +4,7 @@ import Index from '@/views/Index'
 import Users from '@/views/Users'
 import Pets from '@/views/Pets'
 import Log from '@/views/Log'
-import Chart from '@/views/FeedChart'
+import Chart from '@/views/AppStats'
 
 Vue.use(Router)
 
