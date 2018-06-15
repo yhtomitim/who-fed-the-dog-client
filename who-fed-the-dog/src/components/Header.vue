@@ -1,25 +1,18 @@
 <template>
   <header>
+    <v-layout
+          align-center
+          justify-center>
     <v-footer>
-      <p>Who Fed The Dog?!</p>
       <nav>
-      <v-chip>
-        <router-link to="/">Home</router-link>
-      </v-chip>
-      <v-chip>
-        <router-link to="/users">Users</router-link>
-      </v-chip>
-      <v-chip>
-        <router-link to="/pets">Pets</router-link>
-      </v-chip>
-      <v-chip>
-        <router-link to="/log">Feeding Log</router-link>
-      </v-chip>
-       <v-chip>
-        <router-link to="/chart">App Stats</router-link>
-      </v-chip>
+      <v-btn to="/">Home</v-btn>
+      <v-btn to="/users">Users</v-btn>
+      <v-btn to="/pets">Pets</v-btn>
+      <v-btn to="/log">Pet Feeding Log</v-btn>
+       <v-btn to="/chart">App Statistics</v-btn>
     </nav>
     </v-footer>
+    </v-layout>
   </header>
 </template>
 
