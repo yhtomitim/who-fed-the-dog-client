@@ -1,5 +1,5 @@
 import {
-  Line,
+  Bar,
   mixins
 } from 'vue-chartjs'
 const {
@@ -7,7 +7,7 @@ const {
 } = mixins
 
 export default {
-  extends: Line,
+  extends: Bar,
   mixins: [reactiveProp],
   props: ['options'],
   mounted() {
