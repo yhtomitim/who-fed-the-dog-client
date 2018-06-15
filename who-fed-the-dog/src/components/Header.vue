@@ -15,6 +15,9 @@
       <v-chip>
         <router-link to="/log">Feeding Log</router-link>
       </v-chip>
+       <v-chip>
+        <router-link to="/chart">User Charts</router-link>
+      </v-chip>
     </nav>
     </v-footer>
     

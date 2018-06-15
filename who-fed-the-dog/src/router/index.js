@@ -4,6 +4,7 @@ import Index from '@/views/Index'
 import Users from '@/views/Users'
 import Pets from '@/views/Pets'
 import Log from '@/views/Log'
+import Chart from '@/views/FeedChart'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/log',
       name: 'Log',
       component: Log
+    },
+    {
+      path: '/chart',
+      name: 'Chart',
+      component: Chart
     }
   ]
 })
