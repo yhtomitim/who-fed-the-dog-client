@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <Header/>
     <v-content>
+      <Header/>
       <v-container
         fluid
         fill-height>
@@ -11,8 +11,8 @@
           <router-view/>
         </v-layout>
       </v-container>
+      <Footer/>
     </v-content>
-    <Footer/>
   </v-app>
 </template>
 
