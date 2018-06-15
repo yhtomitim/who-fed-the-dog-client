@@ -5,12 +5,12 @@
       :key="index"
       width="20em"
       dark>
-      <p>{{value.id}}</p>
-      <p>{{value.username}}</p>
-      <p>{{value.petName}}</p>
-      <p>Pet ID: {{value.pet_id}}</p>
-      <p>User ID: {{value.user_id}}</p>
-      <p>Date and time Fed: {{value.fedOn}}</p>
+      <p>ID: {{value.id}}</p>
+      <p v-if="value.username">{{value.username}}</p>
+      <p v-if="value.petName">{{value.petName}}</p>
+      <p v-if="value.pet_id">Pet ID: {{value.pet_id}}</p>
+      <p v-if="value.user_id">User ID: {{value.user_id}}</p>
+      <p v-if="$route.path === '/log'">{{value.username}} fed {{value.petName}} at {{value.fedOn}}</p>
       </v-card>
   </ul>
 </template>
