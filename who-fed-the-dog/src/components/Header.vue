@@ -2,7 +2,8 @@
   <header>
     <v-layout
           align-center
-          justify-center>
+          justify-center
+          pt-5>
     <v-footer>
       <nav>
       <v-btn to="/">Home</v-btn>
