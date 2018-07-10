@@ -1,6 +1,6 @@
 # Who Fed The Dog?! App, client-side
 
-A Vue.js app built with Vuetify.js that helps keep track of who fed a dog or other pet. Backed with an Express API and PostgreSQL db
+A Vue.js app built with Vuetify.js that helps keep track of who fed a dog or other pet. Backed with an Express API and PostgreSQL db. The server-side source code can be found [here](https://github.com/yhtomitim/who-fed-the-dog-server).
 
 ## Build Setup
 
