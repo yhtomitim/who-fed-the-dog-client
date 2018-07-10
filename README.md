@@ -6,7 +6,8 @@ A Vue.js app built with Vuetify.js that helps keep track of who fed a dog or oth
 
 ``` bash
 # install dependencies
-$ npm install # Or $ yarn install
+$ npm install
+$ yarn install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
