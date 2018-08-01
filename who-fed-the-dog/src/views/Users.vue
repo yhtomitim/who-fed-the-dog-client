@@ -20,7 +20,7 @@
     <p v-if="true">{{ message }}</p>
     <details>
       <summary>Expand for requested info...</summary>
-      <list-data :data="toPage"/>
+      <list-data :data="toPage" />
       <label for="editUser">Change Username: </label>
       <v-text-field
         type="text"
